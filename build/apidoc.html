@@ -1,0 +1,863 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/jmar777/suspend#readme"
+
+    >suspend (v0.7.0)</a>
+</h1>
+<h4>Async control-flow for Node.js using ES6 generators.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.suspend">module suspend</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.suspend">
+            function <span class="apidocSignatureSpan"></span>suspend
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.callback">
+            function <span class="apidocSignatureSpan">suspend.</span>callback
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn">
+            function <span class="apidocSignatureSpan">suspend.</span>fn
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fork">
+            function <span class="apidocSignatureSpan">suspend.</span>fork
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.join">
+            function <span class="apidocSignatureSpan">suspend.</span>join
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.promise">
+            function <span class="apidocSignatureSpan">suspend.</span>promise
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.resume">
+            function <span class="apidocSignatureSpan">suspend.</span>resume
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.resumeRaw">
+            function <span class="apidocSignatureSpan">suspend.</span>resumeRaw
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.run">
+            function <span class="apidocSignatureSpan">suspend.</span>run
+            <span class="apidocSignatureSpan">(generator, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.suspend.fn">module suspend.fn</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.fn">
+            function <span class="apidocSignatureSpan">suspend.</span>fn
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.callback">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>callback
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.fork">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>fork
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.join">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>join
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.promise">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>promise
+            <span class="apidocSignatureSpan">(generator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.resume">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>resume
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.resumeRaw">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>resumeRaw
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.suspend.fn.run">
+            function <span class="apidocSignatureSpan">suspend.fn.</span>run
+            <span class="apidocSignatureSpan">(generator, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.suspend" id="apidoc.module.suspend">module suspend</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.suspend" id="apidoc.element.suspend.suspend">
+        function <span class="apidocSignatureSpan"></span>suspend
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .fn() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var suspender = new Suspender(generator);
+		// preserve `this` context
+		suspender.start(this, Array.prototype.slice.call(arguments));
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.callback" id="apidoc.element.suspend.callback">
+        function <span class="apidocSignatureSpan">suspend.</span>callback
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function callback(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .callback() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var callback = arguments[arguments.length - 1],
+			args = Array.prototype.slice.call(arguments, 0, -1);
+
+		if (typeof callback !== &#x27;function&#x27;) {
+			throw new Error(&#x27;Last argument must be a callback function.&#x27;);
+		}
+
+		var suspender = new Suspender(generator, callback);
+		// preserve `this` context
+		suspender.start(this, args);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn" id="apidoc.element.suspend.fn">
+        function <span class="apidocSignatureSpan">suspend.</span>fn
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .fn() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var suspender = new Suspender(generator);
+		// preserve `this` context
+		suspender.start(this, Array.prototype.slice.call(arguments));
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Documentation
+
+* **[API](#api)**
+* [suspend.async(fn*)](#suspendasyncfn)
+* [suspend.promise(fn*)](#suspendpromisefn)
+* [suspend.<span class="apidocCodeKeywordSpan">fn</span>(fn*)](#suspendfnfn)
+* [suspend.run(fn*)](#suspendrunfn-cb)
+* [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+* [yield](#yield)
+* [suspend.resume()](#suspendresume)
+* [suspend.resumeRaw()](#suspendresumeraw)
+* [Promises](#promises)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fork" id="apidoc.element.suspend.fork">
+        function <span class="apidocSignatureSpan">suspend.</span>fork
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fork() {
+	var suspender = getActiveSuspender();
+	if (!suspender) {
+		throw new Error(&#x27;fork() must be called from the generator body.&#x27;);
+	}
+	return suspender.forkFactory();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.resume()](#suspendresume)
+    * [suspend.resumeRaw()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.<span class="apidocCodeKeywordSpan">fork</span>() and suspend.join()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+
+## API
+
+### `suspend.async(fn*)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.join" id="apidoc.element.suspend.join">
+        function <span class="apidocSignatureSpan">suspend.</span>join
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function join() {
+	var suspender = getActiveSuspender();
+	if (!suspender) {
+		throw new Error(&#x27;join() must be called from the generator body.&#x27;);
+	}
+	if (suspender.pendingJoin) {
+		throw new Error(&#x27;There is already a join() pending unresolved forks.&#x27;);
+	}
+	suspender.join();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.resume()](#suspendresume)
+    * [suspend.resumeRaw()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.fork() and suspend.<span class="apidocCodeKeywordSpan">join</span>()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+
+## API
+
+### `suspend.async(fn*)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.promise" id="apidoc.element.suspend.promise">
+        function <span class="apidocSignatureSpan">suspend.</span>promise
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promise(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .promise() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var self = this,
+			args = Array.prototype.slice.call(arguments);
+
+		return new Promise(function(resolve, reject) {
+			var suspender = new Suspender(generator, function(err, ret) {
+				err ? reject(err) : resolve(ret);
+			});
+			suspender.start(self, args);
+		});
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+$ npm install suspend
+```
+
+## Documentation
+
+* **[API](#api)**
+* [suspend.async(fn*)](#suspendasyncfn)
+* [suspend.<span class="apidocCodeKeywordSpan">promise</span>(fn*)](#suspendpromisefn)
+* [suspend.fn(fn*)](#suspendfnfn)
+* [suspend.run(fn*)](#suspendrunfn-cb)
+* [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+* [yield](#yield)
+* [suspend.resume()](#suspendresume)
+* [suspend.resumeRaw()](#suspendresumeraw)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.resume" id="apidoc.element.suspend.resume">
+        function <span class="apidocSignatureSpan">suspend.</span>resume
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resumeFactory() {
+	var suspender = getActiveSuspender();
+	if (!suspender) {
+		throw new Error(&#x27;resume() must be called from the generator body.&#x27;);
+	}
+
+	var alreadyResumed = false;
+
+	return function resume() {
+		if (alreadyResumed) {
+			throw new Error(&#x27;Cannot call same resumer multiple times.&#x27;);
+		}
+		alreadyResumed = true;
+		suspender.resume.apply(suspender, arguments);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    * [suspend.async(fn*)](#suspendasyncfn)
+    * [suspend.promise(fn*)](#suspendpromisefn)
+    * [suspend.fn(fn*)](#suspendfnfn)
+    * [suspend.run(fn*)](#suspendrunfn-cb)
+    * [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.<span class="apidocCodeKeywordSpan">resume</span>()](#suspendresume)
+    * [suspend.resumeRaw()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.fork() and suspend.join()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.resumeRaw" id="apidoc.element.suspend.resumeRaw">
+        function <span class="apidocSignatureSpan">suspend.</span>resumeRaw
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resumeRawFactory() {
+	var resume = suspend.resume.apply(this, arguments);
+	getActiveSuspender().rawResume = true;
+	return resume;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    * [suspend.promise(fn*)](#suspendpromisefn)
+    * [suspend.fn(fn*)](#suspendfnfn)
+    * [suspend.run(fn*)](#suspendrunfn-cb)
+    * [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.resume()](#suspendresume)
+    * [suspend.<span class="apidocCodeKeywordSpan">resumeRaw</span>()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.fork() and suspend.join()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.run" id="apidoc.element.suspend.run">
+        function <span class="apidocSignatureSpan">suspend.</span>run
+        <span class="apidocSignatureSpan">(generator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(generator, callback) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .run() argument must be a GeneratorFunction.&#x27;);
+	}
+	if (callback &#x26;&#x26; typeof callback !== &#x27;function&#x27;) {
+		throw new Error(&#x27;Second .run() argument must be a callback function.&#x27;);
+	}
+	var suspender = new Suspender(generator, callback);
+	// preserve `this` context
+	suspender.start(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Documentation
+
+* **[API](#api)**
+* [suspend.async(fn*)](#suspendasyncfn)
+* [suspend.promise(fn*)](#suspendpromisefn)
+* [suspend.fn(fn*)](#suspendfnfn)
+* [suspend.<span class="apidocCodeKeywordSpan">run</span>(fn*)](#suspendrunfn-cb)
+* [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+* [yield](#yield)
+* [suspend.resume()](#suspendresume)
+* [suspend.resumeRaw()](#suspendresumeraw)
+* [Promises](#promises)
+* [Thunks](#thunks)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.suspend.fn" id="apidoc.module.suspend.fn">module suspend.fn</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.fn" id="apidoc.element.suspend.fn.fn">
+        function <span class="apidocSignatureSpan">suspend.</span>fn
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fn(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .fn() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var suspender = new Suspender(generator);
+		// preserve `this` context
+		suspender.start(this, Array.prototype.slice.call(arguments));
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Documentation
+
+* **[API](#api)**
+* [suspend.async(fn*)](#suspendasyncfn)
+* [suspend.promise(fn*)](#suspendpromisefn)
+* [suspend.<span class="apidocCodeKeywordSpan">fn</span>(fn*)](#suspendfnfn)
+* [suspend.run(fn*)](#suspendrunfn-cb)
+* [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+* [yield](#yield)
+* [suspend.resume()](#suspendresume)
+* [suspend.resumeRaw()](#suspendresumeraw)
+* [Promises](#promises)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.callback" id="apidoc.element.suspend.fn.callback">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>callback
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function callback(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .callback() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var callback = arguments[arguments.length - 1],
+			args = Array.prototype.slice.call(arguments, 0, -1);
+
+		if (typeof callback !== &#x27;function&#x27;) {
+			throw new Error(&#x27;Last argument must be a callback function.&#x27;);
+		}
+
+		var suspender = new Suspender(generator, callback);
+		// preserve `this` context
+		suspender.start(this, args);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.fork" id="apidoc.element.suspend.fn.fork">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>fork
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fork() {
+	var suspender = getActiveSuspender();
+	if (!suspender) {
+		throw new Error(&#x27;fork() must be called from the generator body.&#x27;);
+	}
+	return suspender.forkFactory();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.resume()](#suspendresume)
+    * [suspend.resumeRaw()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.<span class="apidocCodeKeywordSpan">fork</span>() and suspend.join()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+
+## API
+
+### `suspend.async(fn*)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.join" id="apidoc.element.suspend.fn.join">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>join
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function join() {
+	var suspender = getActiveSuspender();
+	if (!suspender) {
+		throw new Error(&#x27;join() must be called from the generator body.&#x27;);
+	}
+	if (suspender.pendingJoin) {
+		throw new Error(&#x27;There is already a join() pending unresolved forks.&#x27;);
+	}
+	suspender.join();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.resume()](#suspendresume)
+    * [suspend.resumeRaw()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.fork() and suspend.<span class="apidocCodeKeywordSpan">join</span>()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+
+## API
+
+### `suspend.async(fn*)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.promise" id="apidoc.element.suspend.fn.promise">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>promise
+        <span class="apidocSignatureSpan">(generator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promise(generator) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .promise() argument must be a GeneratorFunction.&#x27;);
+	}
+
+	return function() {
+		var self = this,
+			args = Array.prototype.slice.call(arguments);
+
+		return new Promise(function(resolve, reject) {
+			var suspender = new Suspender(generator, function(err, ret) {
+				err ? reject(err) : resolve(ret);
+			});
+			suspender.start(self, args);
+		});
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+$ npm install suspend
+```
+
+## Documentation
+
+* **[API](#api)**
+* [suspend.async(fn*)](#suspendasyncfn)
+* [suspend.<span class="apidocCodeKeywordSpan">promise</span>(fn*)](#suspendpromisefn)
+* [suspend.fn(fn*)](#suspendfnfn)
+* [suspend.run(fn*)](#suspendrunfn-cb)
+* [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+* [yield](#yield)
+* [suspend.resume()](#suspendresume)
+* [suspend.resumeRaw()](#suspendresumeraw)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.resume" id="apidoc.element.suspend.fn.resume">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>resume
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resumeFactory() {
+	var suspender = getActiveSuspender();
+	if (!suspender) {
+		throw new Error(&#x27;resume() must be called from the generator body.&#x27;);
+	}
+
+	var alreadyResumed = false;
+
+	return function resume() {
+		if (alreadyResumed) {
+			throw new Error(&#x27;Cannot call same resumer multiple times.&#x27;);
+		}
+		alreadyResumed = true;
+		suspender.resume.apply(suspender, arguments);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    * [suspend.async(fn*)](#suspendasyncfn)
+    * [suspend.promise(fn*)](#suspendpromisefn)
+    * [suspend.fn(fn*)](#suspendfnfn)
+    * [suspend.run(fn*)](#suspendrunfn-cb)
+    * [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.<span class="apidocCodeKeywordSpan">resume</span>()](#suspendresume)
+    * [suspend.resumeRaw()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.fork() and suspend.join()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.resumeRaw" id="apidoc.element.suspend.fn.resumeRaw">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>resumeRaw
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resumeRawFactory() {
+	var resume = suspend.resume.apply(this, arguments);
+	getActiveSuspender().rawResume = true;
+	return resume;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    * [suspend.promise(fn*)](#suspendpromisefn)
+    * [suspend.fn(fn*)](#suspendfnfn)
+    * [suspend.run(fn*)](#suspendrunfn-cb)
+    * [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+    * [yield](#yield)
+    * [suspend.resume()](#suspendresume)
+    * [suspend.<span class="apidocCodeKeywordSpan">resumeRaw</span>()](#suspendresumeraw)
+    * [Promises](#promises)
+    * [Thunks](#thunks)
+* **[Parallel Operations](#parallel-operations)**
+    * [suspend.fork() and suspend.join()](#suspendfork-and-suspendjoin)
+    * [Combining with Other Control-Flow Libraries](#combining-with-other-control-flow-libraries)
+* **[Error Handling](#error-handling)**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.suspend.fn.run" id="apidoc.element.suspend.fn.run">
+        function <span class="apidocSignatureSpan">suspend.fn.</span>run
+        <span class="apidocSignatureSpan">(generator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(generator, callback) {
+	if (!isGeneratorFunction(generator)) {
+		throw new Error(&#x27;First .run() argument must be a GeneratorFunction.&#x27;);
+	}
+	if (callback &#x26;&#x26; typeof callback !== &#x27;function&#x27;) {
+		throw new Error(&#x27;Second .run() argument must be a callback function.&#x27;);
+	}
+	var suspender = new Suspender(generator, callback);
+	// preserve `this` context
+	suspender.start(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Documentation
+
+* **[API](#api)**
+* [suspend.async(fn*)](#suspendasyncfn)
+* [suspend.promise(fn*)](#suspendpromisefn)
+* [suspend.fn(fn*)](#suspendfnfn)
+* [suspend.<span class="apidocCodeKeywordSpan">run</span>(fn*)](#suspendrunfn-cb)
+* [suspend(fn*)](#suspendfn)
+* **[Suspending and Resuming Execution](#suspending-and-resuming-execution)**
+* [yield](#yield)
+* [suspend.resume()](#suspendresume)
+* [suspend.resumeRaw()](#suspendresumeraw)
+* [Promises](#promises)
+* [Thunks](#thunks)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
